@@ -1,0 +1,34 @@
+{
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 15565,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 291.2768390619953,
+    "medianResTime" : 328.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 494.0,
+    "pct1ResTime" : 439.0,
+    "pct2ResTime" : 456.0,
+    "pct3ResTime" : 474.34000000000015,
+    "throughput" : 258.19026291780705,
+    "receivedKBytesPerSec" : 25917.864751803932,
+    "sentKBytesPerSec" : 35.55158893692461
+  },
+  "GET /meetings" : {
+    "transaction" : "GET /meetings",
+    "sampleCount" : 15565,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 291.2768390619953,
+    "medianResTime" : 328.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 494.0,
+    "pct1ResTime" : 439.0,
+    "pct2ResTime" : 456.0,
+    "pct3ResTime" : 474.34000000000015,
+    "throughput" : 258.19026291780705,
+    "receivedKBytesPerSec" : 25917.864751803932,
+    "sentKBytesPerSec" : 35.55158893692461
+  }
+}

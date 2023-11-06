@@ -1,17 +1,54 @@
 version: "3.4"
 
 services:
+  load-balancer:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - minimalmeet-js
+      - minimalmeet-js-1
+      - minimalmeet-js-2
+
   minimalmeet-js:
     container_name: minimalmeet-js
     build:
       dockerfile: Dockerfile
     environment:
-      DB_HOST: db
+      DB_HOST: ${HOST}
       DB_PORT: ${PORT}
-      DB_USER: ${USER}
+      DB_USERNAME: ${USERNAME}
       DB_PASSWORD: ${PASSWORD}
     ports:
       - 13000:3000
+    depends_on:
+      - db
+
+  minimalmeet-js-1:
+    container_name: minimalmeet-js-1
+    build:
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: ${HOST}
+      DB_PORT: ${PORT}
+      DB_USERNAME: ${USERNAME}
+      DB_PASSWORD: ${PASSWORD}
+    ports:
+      - 13001:3000
+    depends_on:
+      - db
+
+  minimalmeet-js-2:
+    container_name: minimalmeet-js-2
+    build:
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: ${HOST}
+      DB_PORT: ${PORT}
+      DB_USERNAME: ${USERNAME}
+      DB_PASSWORD: ${PASSWORD}
+    ports:
+      - 13002:3000
     depends_on:
       - db
 
@@ -20,7 +57,7 @@ services:
     container_name: db
     environment:
       POSTGRES_PORT: ${PORT}
-      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_DB: ${DATABASE}
       POSTGRES_PASSWORD: ${PASSWORD}
       POSTGRES_USER: ${USER}
     ports:
